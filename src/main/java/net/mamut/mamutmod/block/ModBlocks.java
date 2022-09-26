@@ -31,7 +31,7 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(5, 10)), ModCreativeModeTab.MAMUT_TAB);
-    public static final RegistryObject<Block> DEEPSLATE_Mamutinium_Ore = registryBlock("deepslate_  mamutinium_ore",
+    public static final RegistryObject<Block> DEEPSLATE_Mamutinium_Ore = registryBlock("deepslate_mamutinium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(5, 10)), ModCreativeModeTab.MAMUT_TAB);
