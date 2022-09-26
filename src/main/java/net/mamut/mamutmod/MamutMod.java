@@ -1,6 +1,8 @@
 package net.mamut.mamutmod;
 
 import com.mojang.logging.LogUtils;
+import net.mamut.mamutmod.block.ModBlocks;
+import net.mamut.mamutmod.item.ModItems;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +26,9 @@ public class MamutMod
     public MamutMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         
         modEventBus.addListener(this::commonSetup);
         
@@ -31,9 +36,7 @@ public class MamutMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+       
     }
 
 
