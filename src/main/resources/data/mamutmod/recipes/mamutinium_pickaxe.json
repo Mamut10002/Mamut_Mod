@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "mamutmod:mamut_stick"
+    },
+    "*": {
+      "item": "mamutmod:mamutinium"
+    }
+  },
+  "result": {
+    "item": "mamutmod:mamutinium_pickaxe"
+  }
+}

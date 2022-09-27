@@ -1,6 +1,7 @@
 package net.mamut.mamutmod.item;
 
 import net.mamut.mamutmod.MamutMod;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -36,6 +37,22 @@ public class ModItems {
 
     public static final RegistryObject<Item> Mamutinium_Hoe = ITEMS.register("mamutinium_hoe",
             () -> new HoeItem(ModTiers.Mamutinium, 2, 0f,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
+    public static final RegistryObject<Item> Mamutinium_Helmet = ITEMS.register("mamutinium_helmet",
+            () -> new ArmorItem(ModArmorMaterials.MAMUTINIUM, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
+    public static final RegistryObject<Item> Mamutinium_Chestplate = ITEMS.register("mamutinium_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.MAMUTINIUM, EquipmentSlot.CHEST,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
+    public static final RegistryObject<Item> Mamutinium_leggings = ITEMS.register("mamutinium_leggings",
+            () -> new ArmorItem(ModArmorMaterials.MAMUTINIUM, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
+    public static final RegistryObject<Item> Mamutinium_Boots = ITEMS.register("mamutinium_boots",
+            () -> new ArmorItem(ModArmorMaterials.MAMUTINIUM, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
 
