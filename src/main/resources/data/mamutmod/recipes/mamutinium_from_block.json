@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mamutmod:mamutinium_block"
+    }
+  ],
+  "result": {
+    "item": "mamutmod:mamutinium",
+    "count": 9
+  }
+}

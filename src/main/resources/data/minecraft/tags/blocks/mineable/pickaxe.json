@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mamutmod:mamutinium_ore",
+    "mamutmod:mamutinium_block",
+    "mamutmod:deepslate_mamutinium_ore"
+  ]
+}

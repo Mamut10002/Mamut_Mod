@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab MAMUT_TAB = new CreativeModeTab("mamuttab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.Zircon.get());
+            return new ItemStack(ModItems.Mamutinium.get());
         }
     };
 }

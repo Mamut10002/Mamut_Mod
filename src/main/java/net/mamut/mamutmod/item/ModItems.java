@@ -11,9 +11,11 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MamutMod.MOD_ID);
 
-    public static final RegistryObject<Item> Zircon = ITEMS.register("zircon",
+    public static final RegistryObject<Item> Mamutinium = ITEMS.register("mamutinium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> Mamut_Stick = ITEMS.register("mamut_stick",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> Mamutininium = ITEMS.register("mamutininium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
     public static void register(IEventBus eventBus) {

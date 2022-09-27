@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#*#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "mamutmod:mamutinium"
+    },
+    "*": {
+      "item": "mamutmod:mamutinium_block"
+    }
+  },
+  "result": {
+    "item": "mamutmod:mamutininium"
+  }
+}
