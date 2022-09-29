@@ -3,7 +3,10 @@ package net.mamut.mamutmod;
 import com.mojang.logging.LogUtils;
 import net.mamut.mamutmod.block.ModBlocks;
 import net.mamut.mamutmod.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.client.model.renderable.ITextureRenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,9 +47,8 @@ public class MamutMod
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-
+        public static void onClientSetup(final FMLClientSetupEvent event) {
+            //ItemBlockRenderTypes.setRenderLayer(ModBlocks.RedWheat_Crop.get(), RenderType.cutout());
         }
     }
 }

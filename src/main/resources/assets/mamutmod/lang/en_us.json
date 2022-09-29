@@ -24,6 +24,10 @@
   "block.mamutmod.mamutinium_ore": "Mamutinium Ore",
   "block.mamutmod.deepslate_mamutinium_ore": "Deepslate Mamutinium Ore",
 
+  "item.mamutmod.redwheat": "Red Wheat",
+  "item.mamutmod.redwheat_seeds": "Red Wheat Seeds",
+  "block.mamutmod.redwheat_crop": "Red Wheat Crop",
+
   "itemGroup.mamuttab": "Mamutinium Tab"
 
 

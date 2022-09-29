@@ -1,12 +1,15 @@
 package net.mamut.mamutmod.item;
 
 import net.mamut.mamutmod.MamutMod;
+import net.mamut.mamutmod.block.ModBlocks;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.checkerframework.checker.units.qual.Speed;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -63,6 +66,12 @@ public class ModItems {
     public static final RegistryObject<Item> Mamutininium_Hoe = ITEMS.register("mamutininium_hoe",
             () -> new HoeItem(ModTiers.Mamutininium, 3, 0f,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
+    public static final RegistryObject<Item> RedWheat_Seeds = ITEMS.register("redwheat_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.RedWheat_Crop.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> RedWheat = ITEMS.register("redwheat",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(4f).build())));
 
 
 

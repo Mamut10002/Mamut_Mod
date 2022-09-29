@@ -1,0 +1,6 @@
+{
+  "parnet": "minecraft:block/crop",
+  "textures": {
+    "crop": "mamutmod:block/redwheat_stage7"
+  }
+}
