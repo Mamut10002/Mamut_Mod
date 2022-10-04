@@ -2,23 +2,21 @@ package net.mamut.mamutmod;
 
 import com.mojang.logging.LogUtils;
 import net.mamut.mamutmod.block.ModBlocks;
+import net.mamut.mamutmod.entity.ModEntityTypes;
+import net.mamut.mamutmod.entity.client.RedGolemRenderer;
 import net.mamut.mamutmod.item.ModItems;
 import net.mamut.mamutmod.world.feature.ModConfiguredFeatures;
 import net.mamut.mamutmod.world.feature.ModPlacedFeatures;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.client.model.renderable.ITextureRenderTypeLookup;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MamutMod.MOD_ID)
@@ -38,6 +36,11 @@ public class MamutMod
 
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
+
+        ModEntityTypes.register(modEventBus);
+
+        GeckoLib.initialize();
+
         
         modEventBus.addListener(this::commonSetup);
         
@@ -54,6 +57,10 @@ public class MamutMod
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(final FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntityTypes.Red_Golem.get(), RedGolemRenderer::new);
+
+
+
 
         }
     }

@@ -2,14 +2,15 @@ package net.mamut.mamutmod.item;
 
 import net.mamut.mamutmod.MamutMod;
 import net.mamut.mamutmod.block.ModBlocks;
+import net.mamut.mamutmod.entity.ModEntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.checkerframework.checker.units.qual.Speed;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -75,6 +76,11 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> RedWheat = ITEMS.register("redwheat",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(4f).build())));
+
+    public static final RegistryObject<Item> RedGolem_Spawn_Egg = ITEMS.register("redgolem_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.Red_Golem, 0x255b0, 0x19732,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+
 
 
 
