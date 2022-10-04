@@ -19,7 +19,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> Mamut_Stick = ITEMS.register("mamut_stick",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    
     public static final RegistryObject<Item> Mamutininium = ITEMS.register("mamutininium",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> Mamutininium_stick = ITEMS.register("mamutininium_stick",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
     public static final RegistryObject<Item> Mamutinium_Sword = ITEMS.register("mamutinium_sword",

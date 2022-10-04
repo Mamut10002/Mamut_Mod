@@ -2,5 +2,6 @@
   "parnet": "minecraft:block/crop",
   "textures": {
     "crop": "mamutmod:block/redwheat_stage5"
-  }
+  },
+  "render_type": "cutout"
 }
