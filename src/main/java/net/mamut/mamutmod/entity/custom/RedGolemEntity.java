@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -13,8 +14,15 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -57,17 +65,41 @@ public class RedGolemEntity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
+
+
+
+        
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Pillager.class, true));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Vindicator.class, true));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Evoker.class, true));
-
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, PatrollingMonster.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AgeableMob.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, WaterAnimal.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AbstractGolem.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Allay.class, true));
+        //this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Monster.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Blaze.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Spider.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, WitherBoss.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Giant.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Warden.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Vex.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Guardian.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, EnderMan.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Endermite.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AbstractPiglin.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Zoglin.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AbstractSkeleton.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Silverfish.class, true));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, EnderDragon.class, true));
     }
 
+
+    
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
@@ -78,6 +110,8 @@ public class RedGolemEntity extends Monster implements IAnimatable {
         if (source == DamageSource.CACTUS)
             return false;
         if (source == DamageSource.ON_FIRE)
+            return false;
+        if (source == DamageSource.IN_FIRE)
             return false;
         return super.hurt(source, amount);
     }
@@ -136,7 +170,7 @@ public class RedGolemEntity extends Monster implements IAnimatable {
     }
 
     protected float getSoundVolume() {
-        return 0.2F;
+        return 0.3F;
     }
 
 }
