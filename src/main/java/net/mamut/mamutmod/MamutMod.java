@@ -3,6 +3,7 @@ package net.mamut.mamutmod;
 import com.mojang.logging.LogUtils;
 import net.mamut.mamutmod.block.ModBlocks;
 import net.mamut.mamutmod.entity.ModEntityTypes;
+import net.mamut.mamutmod.entity.client.MamutiniumGolemRenderer;
 import net.mamut.mamutmod.entity.client.RedGolemRenderer;
 import net.mamut.mamutmod.item.ModItems;
 import net.mamut.mamutmod.world.feature.ModConfiguredFeatures;
@@ -55,6 +56,10 @@ public class MamutMod
             SpawnPlacements.register(ModEntityTypes.Red_Golem.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
+
+            SpawnPlacements.register(ModEntityTypes.MamutiniumGolem.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkAnyLightMonsterSpawnRules);
             
 
 
@@ -69,6 +74,7 @@ public class MamutMod
         @SubscribeEvent
         public static void onClientSetup(final FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntityTypes.Red_Golem.get(), RedGolemRenderer::new);
+            EntityRenderers.register(ModEntityTypes.MamutiniumGolem.get(), MamutiniumGolemRenderer::new);
 
 
 

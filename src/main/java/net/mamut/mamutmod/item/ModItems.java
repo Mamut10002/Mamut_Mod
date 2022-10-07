@@ -80,6 +80,9 @@ public class ModItems {
     public static final RegistryObject<Item> RedGolem_Spawn_Egg = ITEMS.register("redgolem_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.Red_Golem, 0x255b0, 0x19732,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> MamutiniumGolem_Spawn_Egg = ITEMS.register("mamutiniumgolem_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.MamutiniumGolem, 0x0b255, 0x18732,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
 
 
