@@ -1,6 +1,7 @@
 package net.mamut.mamutmod.entity;
 
 import net.mamut.mamutmod.MamutMod;
+import net.mamut.mamutmod.entity.custom.GreatGolemEntity;
 import net.mamut.mamutmod.entity.custom.MamutiniumGolemEntity;
 import net.mamut.mamutmod.entity.custom.RedGolemEntity;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +27,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(MamutiniumGolemEntity::new, MobCategory.MONSTER)
                             .sized(0.4f, 1.43f)
                             .build(new ResourceLocation(MamutMod.MOD_ID, "mamutiniumgolem").toString()));
+     
+    public static final RegistryObject<EntityType<GreatGolemEntity>> GreatGolem =
+            Entity_Types.register("greatgolem",
+                    () -> EntityType.Builder.of(GreatGolemEntity::new, MobCategory.MONSTER)
+                            .sized(0.5f, 2.1f)
+                            .build(new ResourceLocation(MamutMod.MOD_ID, "greatolem").toString()));
     
     public static void register(IEventBus eventBus){
         Entity_Types.register(eventBus);

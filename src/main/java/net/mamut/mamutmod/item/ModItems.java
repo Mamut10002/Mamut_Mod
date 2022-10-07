@@ -83,6 +83,9 @@ public class ModItems {
     public static final RegistryObject<Item> MamutiniumGolem_Spawn_Egg = ITEMS.register("mamutiniumgolem_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.MamutiniumGolem, 0x0b255, 0x18732,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> GreatGolem_Spawn_Egg = ITEMS.register("greatgolem_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GreatGolem, 0x50b100, 0x10192,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
 
 

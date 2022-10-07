@@ -2,6 +2,7 @@ package net.mamut.mamutmod.event;
 
 import net.mamut.mamutmod.MamutMod;
 import net.mamut.mamutmod.entity.ModEntityTypes;
+import net.mamut.mamutmod.entity.custom.GreatGolemEntity;
 import net.mamut.mamutmod.entity.custom.MamutiniumGolemEntity;
 import net.mamut.mamutmod.entity.custom.RedGolemEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -23,6 +24,7 @@ public class ModEvents {
         public static void entityAttributeEvent(EntityAttributeCreationEvent event){
             event.put(ModEntityTypes.Red_Golem.get(), RedGolemEntity.setAttributes());
             event.put(ModEntityTypes.MamutiniumGolem.get(), MamutiniumGolemEntity.setAttributes());
+            event.put(ModEntityTypes.GreatGolem.get(), GreatGolemEntity.setAttributes());
         }
     }
 

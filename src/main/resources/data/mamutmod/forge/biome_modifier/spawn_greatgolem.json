@@ -6,9 +6,9 @@
     "minecraft:desert"
   ],
   "spawners": {
-    "type": "mamutmod:red_golem",
-    "weight": 75,
+    "type": "mamutmod:greatgolem",
+    "weight": 50,
     "minCount": 1,
-    "maxCount": 2
+    "maxCount": 1
   }
 }
