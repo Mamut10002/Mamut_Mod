@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "mamutmod:block/red_log_top",
+    "side": "mamutmod:block/red_log"
+  }
+}

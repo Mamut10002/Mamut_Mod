@@ -1,17 +1,22 @@
 package net.mamut.mamutmod.block;
 
 import net.mamut.mamutmod.MamutMod;
+import net.mamut.mamutmod.block.custom.ModFlammableRotatedPillarBlock;
 import net.mamut.mamutmod.item.ModCreativeModeTab;
 import net.mamut.mamutmod.item.ModItems;
-import net.mamut.mamutmod.item.custom.RedwheatCropBlock;
+import net.mamut.mamutmod.block.custom.RedwheatCropBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,6 +33,29 @@ public class ModBlocks {
     public static final RegistryObject<Block> Mamutinium_Block = registryBlock("mamutinium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.MAMUT_TAB);
+
+    public static final RegistryObject<Block> Red_Log = registryBlock("red_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()), ModCreativeModeTab.MAMUT_TAB);
+
+    public static final RegistryObject<Block> Red_PLANKS = registryBlock("red_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 5;
+                }
+            }, ModCreativeModeTab.MAMUT_TAB);
     
     public static final RegistryObject<Block> Mamutinium_Ore = registryBlock("mamutinium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
@@ -35,7 +63,7 @@ public class ModBlocks {
                     UniformInt.of(5, 10)), ModCreativeModeTab.MAMUT_TAB);
     public static final RegistryObject<Block> DEEPSLATE_Mamutinium_Ore = registryBlock("deepslate_mamutinium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6f).requiresCorrectToolForDrops(),
+                    .strength(7f).requiresCorrectToolForDrops(),
                     UniformInt.of(5, 10)), ModCreativeModeTab.MAMUT_TAB);
 
     public static final RegistryObject<Block> RedWheat_Crop = BLOCKS.register("redwheat_crop",

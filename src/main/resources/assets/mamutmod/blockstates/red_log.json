@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mamutmod:block/red_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "mamutmod:block/red_log"
+    },
+    "axis=z": {
+      "model": "mamutmod:block/red_log_horizontal",
+      "x": 90
+    }
+  }
+}

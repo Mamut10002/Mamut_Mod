@@ -1,4 +1,4 @@
-package net.mamut.mamutmod.item.custom;
+package net.mamut.mamutmod.block.custom;
 
 import net.mamut.mamutmod.item.ModItems;
 import net.minecraft.world.level.ItemLike;
