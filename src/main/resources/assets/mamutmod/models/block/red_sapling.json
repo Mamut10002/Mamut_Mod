@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "cross": "mamutmod:block/red_sapling"
+  },
+  "render_type": "cutout"
+}

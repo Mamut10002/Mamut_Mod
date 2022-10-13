@@ -31,10 +31,13 @@
   "block.mamutmod.red_log": "Red Log",
   "block.mamutmod.red_planks": "Red Planks",
   "block.mamutmod.red_leaves": "Red Leaves",
+  "block.mamutmod.red_sapling": "Red Sapling",
+
 
   "item.mamutmod.redwheat": "Red Wheat",
   "item.mamutmod.redwheat_seeds": "Red Wheat Seeds",
   "block.mamutmod.redwheat_crop": "Red Wheat Crop",
+  "block.mamutmod.red_apple": "Red Apple",
 
   "itemGroup.mamuttab": "Mamutinium Tab"
 

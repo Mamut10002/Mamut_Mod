@@ -1,7 +1,10 @@
 package net.mamut.mamutmod.world.feature;
 
 import net.mamut.mamutmod.MamutMod;
+import net.mamut.mamutmod.block.ModBlocks;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,7 +24,15 @@ public class ModPlacedFeatures {
             () -> new PlacedFeature(ModConfiguredFeatures.Mamutinium_ore.getHolder().get(),
                     commonOrePlacement(3, // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-50)))));
-    
+
+
+    public static final RegistryObject<PlacedFeature> RED_TREE_CHECKED = Placed_Feature.register("red_tree_checked",
+            () -> new PlacedFeature(ModConfiguredFeatures.RED_TREE.getHolder().get(),
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.Red_Sapling.get()))));
+
+    public static final RegistryObject<PlacedFeature> RED_TREE_PLACED = Placed_Feature.register("red_tree_placed",
+        () -> new PlacedFeature(ModConfiguredFeatures.RED_TREE_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
+                    PlacementUtils.countExtra(3, 0.1f, 2))));
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());
