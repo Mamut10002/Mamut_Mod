@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-
+    "mamutmod:red_log",
+    "mamutmod:red_planks"
   ]
 }

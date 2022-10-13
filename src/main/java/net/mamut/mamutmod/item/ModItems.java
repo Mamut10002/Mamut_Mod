@@ -3,6 +3,8 @@ package net.mamut.mamutmod.item;
 import net.mamut.mamutmod.MamutMod;
 import net.mamut.mamutmod.block.ModBlocks;
 import net.mamut.mamutmod.entity.ModEntityTypes;
+import net.mamut.mamutmod.item.custom.MamutininiumSword;
+import net.mamut.mamutmod.item.custom.MamutiniumSword;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
@@ -27,7 +29,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
     public static final RegistryObject<Item> Mamutinium_Sword = ITEMS.register("mamutinium_sword",
-            () -> new SwordItem(ModTiers.Mamutinium, 9, -2.4f,
+            () -> new MamutiniumSword(ModTiers.Mamutinium, 9, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> Mamutinium_Pickaxe = ITEMS.register("mamutinium_pickaxe",
             () -> new PickaxeItem(ModTiers.Mamutinium, 6, -2.8f,
@@ -56,7 +58,7 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
     public static final RegistryObject<Item> Mamutininium_Sword = ITEMS.register("mamutininium_sword",
-            () -> new SwordItem(ModTiers.Mamutininium, 13, -2.4f,
+            () -> new MamutininiumSword(ModTiers.Mamutininium, 13, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> Mamutininium_Pickaxe = ITEMS.register("mamutininium_pickaxe",
             () -> new PickaxeItem(ModTiers.Mamutininium, 7, -2.8f,
@@ -76,6 +78,8 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> RedWheat = ITEMS.register("redwheat",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(4f).build())));
+    public static final RegistryObject<Item> Red_Apple = ITEMS.register("red_apple",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB).food(new FoodProperties.Builder().nutrition(5).saturationMod(6f).build())));
 
     public static final RegistryObject<Item> RedGolem_Spawn_Egg = ITEMS.register("redgolem_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.Red_Golem, 0x255b0, 0x19732,

@@ -36,8 +36,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> Red_Log = registryBlock("red_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)
-                    .strength(3f)
-                    .requiresCorrectToolForDrops()), ModCreativeModeTab.MAMUT_TAB);
+                    .strength(3f)), ModCreativeModeTab.MAMUT_TAB);
+    public static final RegistryObject<Block> Red_Leaves = registryBlock("red_leaves",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)
+                    ), ModCreativeModeTab.MAMUT_TAB);
 
     public static final RegistryObject<Block> Red_PLANKS = registryBlock("red_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mamutmod:red_log"
+    }
+  ],
+  "result": {
+    "item": "mamutmod:red_planks",
+    "count": 4
+  }
+}
