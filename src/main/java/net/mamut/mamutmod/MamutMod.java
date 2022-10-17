@@ -5,6 +5,7 @@ import net.mamut.mamutmod.block.ModBlocks;
 import net.mamut.mamutmod.entity.ModEntityTypes;
 import net.mamut.mamutmod.entity.client.GreatGolemRenderer;
 import net.mamut.mamutmod.entity.client.MamutiniumGolemRenderer;
+import net.mamut.mamutmod.entity.client.RangedGolemRenderer;
 import net.mamut.mamutmod.entity.client.RedGolemRenderer;
 import net.mamut.mamutmod.item.ModItems;
 import net.mamut.mamutmod.world.feature.ModConfiguredFeatures;
@@ -66,6 +67,10 @@ public class MamutMod
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
 
+            SpawnPlacements.register(ModEntityTypes.RANGEDGOLEM.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+
         });
        
     }
@@ -79,6 +84,7 @@ public class MamutMod
             EntityRenderers.register(ModEntityTypes.Red_Golem.get(), RedGolemRenderer::new);
             EntityRenderers.register(ModEntityTypes.MamutiniumGolem.get(), MamutiniumGolemRenderer::new);
             EntityRenderers.register(ModEntityTypes.GreatGolem.get(), GreatGolemRenderer::new);
+            EntityRenderers.register(ModEntityTypes.RANGEDGOLEM.get(), RangedGolemRenderer::new);
 
 
 

@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -23,6 +24,7 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib3.core.AnimationState;
@@ -34,48 +36,37 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class RedGolemEntity extends Monster implements IAnimatable {
+public class RangedGolemEntity extends Monster implements IAnimatable, RangedAttackMob {
     private AnimationFactory factory = new AnimationFactory(this);
-    /*
-    boolean isRedGolemEntity = true;
 
 
-    public void CheckforTarget() {
-         if(Attack = RangedGolemEntity.class ){
-               isRedGolemEntity = true;
-         }else{
-             isRedGolemEntity = false;
-         }
-    }
-    */
 
-    public RedGolemEntity(EntityType<? extends Monster> pEntityType, Level level) {
-        super(pEntityType, level);
+
+
+    public RangedGolemEntity(EntityType<? extends Monster> entityType, Level level) {
+        super(entityType, level);
     }
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                
-                .add(Attributes.MAX_HEALTH, 60.0D)
-                .add(Attributes.ATTACK_DAMAGE, 15.0f)
+
+                .add(Attributes.MAX_HEALTH, 40.0D)
+                .add(Attributes.ATTACK_DAMAGE, 7.0f)
                 .add(Attributes.ATTACK_SPEED, 1.0f)
-                .add(Attributes.ARMOR, 50.0D)
+                .add(Attributes.ARMOR, 30.0D)
                 .add(Attributes.FOLLOW_RANGE, 40)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1)
-                .add(Attributes.ATTACK_KNOCKBACK, 2)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 0.8)
+                .add(Attributes.ATTACK_KNOCKBACK, 0.5)
                 .add(Attributes.MOVEMENT_SPEED, 0.2f).build();
+
     }
 
-    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, false));
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.25, 20, 10));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(7, new FollowMobGoal(this, (float) 1, 10, 5));
-
-
-
 
 
 
@@ -108,9 +99,6 @@ public class RedGolemEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Silverfish.class, true));
         this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, EnderDragon.class, true));
     }
-    
-
-
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
@@ -127,26 +115,27 @@ public class RedGolemEntity extends Monster implements IAnimatable {
         return super.hurt(source, amount);
     }
 
-
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.redgolem.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.rangedgolem.walk", true));
             return PlayState.CONTINUE;
         }
-        
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.redgolem.idle", true));
+
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.rangedgolem.idle", true));
         return PlayState.CONTINUE;
-    }   
+    }
+
     private PlayState attackPredicate(AnimationEvent event) {
         if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)){
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.redgolem.attack", false));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.rangedgolem.attack", false));
             this.swinging =false;
         }
-        
+
         return PlayState.CONTINUE;
     }
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",
@@ -155,14 +144,21 @@ public class RedGolemEntity extends Monster implements IAnimatable {
                 0, this::attackPredicate));
     }
 
-
-
     @Override
     public AnimationFactory getFactory() {
         return factory;
     }
 
+    @Override
+    public void performRangedAttack(LivingEntity livingEntity, float v) {
+        Arrow entityarrow = new Arrow(this.level, this);
+        double d0 = getTarget().getY() + getTarget().getEyeHeight() - 1.1;
+        double d1 = getTarget().getX() - this.getX();
+        double d3 = getTarget().getZ() - this.getZ();
+        entityarrow.shoot(d1, d0 - entityarrow.getY() + Math.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.6F, 12.0F);
+        level.addFreshEntity(entityarrow);
 
+    }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.IRON_GOLEM_STEP, 0.15F, 1.0F);

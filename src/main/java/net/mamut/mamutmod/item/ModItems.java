@@ -82,13 +82,16 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB).food(new FoodProperties.Builder().nutrition(5).saturationMod(6f).build())));
 
     public static final RegistryObject<Item> RedGolem_Spawn_Egg = ITEMS.register("redgolem_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.Red_Golem, 0x255b0, 0x19732,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.Red_Golem, -39322, -6750208,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> MamutiniumGolem_Spawn_Egg = ITEMS.register("mamutiniumgolem_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.MamutiniumGolem, 0x0b255, 0x18732,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.MamutiniumGolem, -52429, -3407872,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
     public static final RegistryObject<Item> GreatGolem_Spawn_Egg = ITEMS.register("greatgolem_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GreatGolem, 0x50b100, 0x10192,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GreatGolem, -6750208, -10092544,
+                    new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
+    public static final RegistryObject<Item> RANGEDGOLEM_SPAWN_EGG = ITEMS.register("rangedgolem_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.RANGEDGOLEM, -13108, -52429,
                     new Item.Properties().tab(ModCreativeModeTab.MAMUT_TAB)));
 
 

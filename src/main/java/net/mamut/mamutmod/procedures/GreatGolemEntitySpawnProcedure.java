@@ -1,6 +1,7 @@
 package net.mamut.mamutmod.procedures;
 
 import net.mamut.mamutmod.entity.ModEntityTypes;
+import net.mamut.mamutmod.entity.custom.RangedGolemEntity;
 import net.mamut.mamutmod.entity.custom.RedGolemEntity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -32,7 +33,7 @@ public class GreatGolemEntitySpawnProcedure {
             world.addFreshEntity(entityToSpawn);
         }
         if (world instanceof ServerLevel _level) {
-            Entity entityToSpawn = new RedGolemEntity(ModEntityTypes.Red_Golem.get(), _level);
+            Entity entityToSpawn = new RangedGolemEntity(ModEntityTypes.RANGEDGOLEM.get(), _level);
             entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
             if (entityToSpawn instanceof Mob _mobToSpawn)
                 _mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);

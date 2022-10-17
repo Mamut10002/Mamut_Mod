@@ -7,6 +7,7 @@
   "item.mamutmod.redgolem_spawn_egg": "Red Golem Spawn Egg",
   "item.mamutmod.mamutiniumgolem_spawn_egg": "Mamutinium Golem Spawn Egg",
   "item.mamutmod.greatgolem_spawn_egg": "Great Golem Spawn Egg",
+  "item.mamutmod.rangedgolem_spawn_egg": "Ranged Golem Spawn Egg",
 
   "item.mamutmod.mamutinium_sword": "Mamutinium Sword",
   "item.mamutmod.mamutinium_pickaxe": "Mamutinium Pickaxe",
@@ -37,7 +38,7 @@
   "item.mamutmod.redwheat": "Red Wheat",
   "item.mamutmod.redwheat_seeds": "Red Wheat Seeds",
   "block.mamutmod.redwheat_crop": "Red Wheat Crop",
-  "block.mamutmod.red_apple": "Red Apple",
+  "item.mamutmod.red_apple": "Red Apple",
 
   "itemGroup.mamuttab": "Mamutinium Tab"
 
