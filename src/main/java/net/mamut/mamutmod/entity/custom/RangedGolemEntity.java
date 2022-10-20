@@ -152,11 +152,13 @@ public class RangedGolemEntity extends Monster implements IAnimatable, RangedAtt
     @Override
     public void performRangedAttack(LivingEntity livingEntity, float v) {
         Arrow entityarrow = new Arrow(this.level, this);
-        double d0 = getTarget().getY() + getTarget().getEyeHeight() - 1.1;
-        double d1 = getTarget().getX() - this.getX();
-        double d3 = getTarget().getZ() - this.getZ();
-        entityarrow.shoot(d1, d0 - entityarrow.getY() + Math.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1.6F, 12.0F);
-        level.addFreshEntity(entityarrow);
+        double d0 = livingEntity.getX() - this.getX();
+        double d1 = livingEntity.getY(0.3333333333333333D) - entityarrow.getY();
+        double d2 = livingEntity.getZ() - this.getZ();
+        double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+        entityarrow.shoot(d0, d1 + d3 * (double)0.2F, d2, 1.6F, (float)(14 - this.level.getDifficulty().getId() * 4));
+        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.level.addFreshEntity(entityarrow);
 
     }
 

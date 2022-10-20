@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "down": "mamutmod:block/red_grass_bottom",
+    "up": "mamutmod:block/red_grass_top",
+    "north": "mamutmod:block/red_grass_side",
+    "east": "mamutmod:block/red_grass_side",
+    "south": "mamutmod:block/red_grass_side",
+    "west": "mamutmod:block/red_grass_side",
+    "particle": "mamutmod:block/red_grass_side"
+  }
+}

@@ -79,6 +79,12 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(),
                     UniformInt.of(5, 10)), ModCreativeModeTab.MAMUT_TAB);
+
+    public static final RegistryObject<Block> RED_GRASS = registryBlock("red_grass",
+            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)), ModCreativeModeTab.MAMUT_TAB);
+
+    public static final RegistryObject<Block> RED_DIRT = registryBlock("red_dirt",
+            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.DIRT)), ModCreativeModeTab.MAMUT_TAB);
     public static final RegistryObject<Block> DEEPSLATE_Mamutinium_Ore = registryBlock("deepslate_mamutinium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(7f).requiresCorrectToolForDrops(),
