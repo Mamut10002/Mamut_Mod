@@ -2,6 +2,7 @@ package net.mamut.mamutmod.block;
 
 import net.mamut.mamutmod.MamutMod;
 import net.mamut.mamutmod.block.custom.ModFlammableRotatedPillarBlock;
+import net.mamut.mamutmod.block.custom.ModSaplingBlock;
 import net.mamut.mamutmod.block.custom.RedwheatCropBlock;
 import net.mamut.mamutmod.item.ModCreativeModeTab;
 import net.mamut.mamutmod.item.ModItems;
@@ -73,7 +74,8 @@ public class ModBlocks {
             }, ModCreativeModeTab.MAMUT_TAB);
 
     public static final RegistryObject<Block> Red_Sapling = registryBlock("red_sapling",
-            () -> new SaplingBlock(new RedTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), ModCreativeModeTab.MAMUT_TAB);
+            () -> new ModSaplingBlock(new RedTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING),
+                () -> Blocks.END_STONE), ModCreativeModeTab.MAMUT_TAB);
 
     public static final RegistryObject<Block> Mamutinium_Ore = registryBlock("mamutinium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)

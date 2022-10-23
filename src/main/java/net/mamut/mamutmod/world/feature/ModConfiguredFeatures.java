@@ -7,6 +7,7 @@ import net.mamut.mamutmod.block.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -43,7 +44,7 @@ public class ModConfiguredFeatures {
                             new StraightTrunkPlacer(5, 6, 3),
                             BlockStateProvider.simple(ModBlocks.Red_Leaves.get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
-                            new TwoLayersFeatureSize(1, 0, 2)).build()));
+                            new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.END_STONE)).build()));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> RED_TREE_SPAWN =
             Configured_Features.register("red_tree_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
